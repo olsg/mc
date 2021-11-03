@@ -1,3 +1,5 @@
+// better ?
+
 let myUrl = new URL(document.location.href);
 let myParam = myUrl.searchParams.get("id");
 
