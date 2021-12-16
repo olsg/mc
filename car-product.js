@@ -185,7 +185,7 @@ const getCar = () => {
           )}/mois`;
 
           configTotalPrice.textContent = `${printPrice(
-            price.amountInclVatMonthly
+            price.amountInclVatMonthly + selectedMileage.amountInclVatMonthly
           )}/mois`;
 
           configTotalCommitment.textContent = price.commitmentDurationInMonths;
@@ -264,7 +264,8 @@ const getCar = () => {
       const mileageRecap = document.getElementById("recap-mileage");
       const mileageRecapTitle = document.getElementById("recap-mileage-title");
       const mileageRecapValue = document.getElementById("recap-mileage-value");
-
+      const configTotalPrice = document.getElementById("config-total-price");
+      
       mileageRecap.appendChild(mileageRecapTitle);
       mileageRecap.appendChild(mileageRecapValue);
 
@@ -281,6 +282,9 @@ const getCar = () => {
 
         mileage_distance = allowedMileageMonthly;
         mileage_price = printPrice(amountInclVatMonthly);
+        configTotalPrice.textContent = `${printPrice(
+          parseInt(amountInclVatMonthly) + selectedLease.amountInclVatMonthly
+        )}/mois`;
         selectedMileage = {
           allowedMileageMonthly: parseInt(allowedMileageMonthly),
           amountInclVatMonthly: parseInt(amountInclVatMonthly),
